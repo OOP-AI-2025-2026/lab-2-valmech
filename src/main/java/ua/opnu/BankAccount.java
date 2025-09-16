@@ -3,23 +3,11 @@ package ua.opnu;
 public class BankAccount {
     String name;
     double balance;
-    double transactionFee = 0.0;
-
-    BankAccount(String name, double balance) {
-        this.name = name;
-        this.balance = Math.max(0, balance);
-    }
-
-    public BankAccount() {
-        this.name = "Unknown";
-        this.balance = 0.0;
-    }
+    double transactionFee;
 
     void deposit(double amount) {
-        if (amount <= 0) {
-            return; // ігноруємо
-        }
-        balance += amount;
+        // TODO: modify method body
+        balance = balance + amount;
     }
 
     double getBalance() {
@@ -27,25 +15,13 @@ public class BankAccount {
     }
 
     boolean withdraw(double amount) {
-        if (amount <= 0) {
-            return false;
-        }
-        double total = amount + transactionFee;
-        if (balance >= total) {
-            balance -= total;
-            return true;
-        }
-        return false;
+        // TODO: modify method body
+        balance = balance - amount;
+        return true;
     }
 
     boolean transfer(BankAccount receiver, double amount) {
-        if (receiver == null || amount <= 0) {
-            return false;
-        }
-        if (this.withdraw(amount)) {
-            receiver.deposit(amount);
-            return true;
-        }
+        // TODO: modify method body
         return false;
     }
 }
